@@ -3,14 +3,11 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Pro Portfolio</title>
+<title>Yousuf Khan Portfolio</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
 
-<!-- Particle JS -->
 <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
-
-<!-- EmailJS -->
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
 <style>
@@ -30,50 +27,51 @@ html { scroll-behavior: smooth; }
 
 <body class="bg-gray-950 text-white overflow-x-hidden">
 
-<!-- PARTICLES BACKGROUND -->
 <div id="tsparticles" class="fixed inset-0 -z-10"></div>
 
 <!-- NAV -->
 <header class="fixed w-full bg-gray-900/60 backdrop-blur z-50">
   <div class="max-w-6xl mx-auto flex justify-between p-4 items-center">
+
     <h1 class="font-bold text-xl bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
-      My Portfolio
+      Yousuf Khan
     </h1>
 
     <nav class="hidden md:flex gap-6">
-      <a href="#home" class="hover:text-pink-400">Home</a>
-      <a href="#about" class="hover:text-pink-400">About</a>
-      <a href="#projects" class="hover:text-pink-400">Projects</a>
-      <a href="#contact" class="hover:text-pink-400">Contact</a>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
     </nav>
 
     <button id="menuBtn" class="md:hidden text-2xl">☰</button>
   </div>
-
-  <div id="mobileMenu" class="hidden md:hidden bg-gray-900 px-6 pb-4">
-    <a href="#home" class="block py-1">Home</a>
-    <a href="#about" class="block py-1">About</a>
-    <a href="#projects" class="block py-1">Projects</a>
-    <a href="#contact" class="block py-1">Contact</a>
-  </div>
 </header>
+
+<!-- Mobile Sidebar -->
+<div id="mobileMenu"
+ class="fixed top-0 left-[-100%] w-64 h-full bg-gray-900 p-6 transition-all duration-300 z-50">
+
+  <a href="#home" class="block py-2">Home</a>
+  <a href="#about" class="block py-2">About</a>
+  <a href="#projects" class="block py-2">Projects</a>
+  <a href="#contact" class="block py-2">Contact</a>
+
+</div>
+
+<div id="overlay" class="hidden fixed inset-0 bg-black/50"></div>
 
 <!-- HERO -->
 <section id="home" class="h-screen flex flex-col justify-center items-center text-center">
 
   <h2 class="text-4xl md:text-6xl font-bold">
-    I am <span class="text-pink-400">Developer</span>
+    Md. <span class="text-pink-400">Yousuf Khan</span>
   </h2>
 
-  <!-- Typing -->
   <p class="mt-4 text-gray-300 text-lg">
     <span id="typing"></span>
   </p>
 
-  <a href="#projects"
-     class="mt-6 px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full hover:scale-105 transition">
-    View Work
-  </a>
 </section>
 
 <!-- ABOUT -->
@@ -82,13 +80,18 @@ html { scroll-behavior: smooth; }
   <div>
     <h2 class="text-3xl font-bold mb-4">About Me</h2>
     <p class="text-gray-400">
-      I build modern websites using Tailwind CSS, JavaScript and React.
-      I love animation, UI design and clean code.
+      I build modern websites using Tailwind CSS & JavaScript.
     </p>
+
+    <!-- Social -->
+    <div class="mt-4 flex gap-4">
+      <a href="http://www.facebook.com/mdyousufkhan.180933">Facebook</a>
+      <a href="https://wa.me/8801771183608">WhatsApp</a>
+    </div>
   </div>
 
   <div class="h-64 rounded-2xl bg-gradient-to-r from-purple-600 to-pink-500 flex items-center justify-center">
-    📸 Your Photo Here
+    📸 Your Photo
   </div>
 
 </section>
@@ -101,19 +104,17 @@ html { scroll-behavior: smooth; }
 
   <div class="grid md:grid-cols-3 gap-6">
 
-    <div onclick="openModal('Project 1','This is project details')"
-      class="bg-gray-800 p-5 rounded-xl hover:scale-105 transition cursor-pointer">
-      Project 1
-    </div>
+    <!-- CARD -->
+    <div class="bg-gray-800 rounded-xl overflow-hidden hover:scale-105 transition cursor-pointer"
+      onclick="openModal('Project 1','Details about project')">
 
-    <div onclick="openModal('Project 2','This is project details')"
-      class="bg-gray-800 p-5 rounded-xl hover:scale-105 transition cursor-pointer">
-      Project 2
-    </div>
+      <img src="https://via.placeholder.com/300" class="w-full h-40 object-cover">
 
-    <div onclick="openModal('Project 3','This is project details')"
-      class="bg-gray-800 p-5 rounded-xl hover:scale-105 transition cursor-pointer">
-      Project 3
+      <div class="p-4">
+        <h3 class="font-bold">Project 1</h3>
+        <p class="text-gray-400 text-sm">Project description</p>
+      </div>
+
     </div>
 
   </div>
@@ -145,33 +146,39 @@ html { scroll-behavior: smooth; }
 
 </section>
 
-<!-- FOOTER -->
-<footer class="text-center p-5 text-gray-500">
-© 2026 Portfolio
-</footer>
-
 <!-- MODAL -->
 <div id="modal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center">
   <div class="bg-gray-900 p-6 rounded-xl w-80">
-    <h3 id="modalTitle" class="text-xl font-bold"></h3>
-    <p id="modalText" class="text-gray-400 mt-2"></p>
-
-    <button onclick="closeModal()"
-      class="mt-4 px-4 py-2 bg-pink-500 rounded">
-      Close
-    </button>
+    <h3 id="modalTitle"></h3>
+    <p id="modalText"></p>
+    <button onclick="closeModal()" class="mt-4 bg-pink-500 px-4 py-2 rounded">Close</button>
   </div>
 </div>
 
-<!-- SCRIPT -->
+<!-- WhatsApp Floating -->
+<a href="https://wa.me/8801771183608"
+ class="fixed bottom-5 left-5 bg-green-500 p-4 rounded-full">
+ 💬
+</a>
+
 <script>
 
-/* Mobile Menu */
-document.getElementById("menuBtn").onclick = () => {
-  document.getElementById("mobileMenu").classList.toggle("hidden");
+/* MENU FIX */
+const menuBtn = document.getElementById("menuBtn");
+const mobileMenu = document.getElementById("mobileMenu");
+const overlay = document.getElementById("overlay");
+
+menuBtn.onclick = () => {
+  mobileMenu.style.left = "0";
+  overlay.classList.remove("hidden");
 };
 
-/* Typing Animation */
+overlay.onclick = () => {
+  mobileMenu.style.left = "-100%";
+  overlay.classList.add("hidden");
+};
+
+/* Typing */
 const text = "I build modern websites using Tailwind & JavaScript";
 let i = 0;
 function type() {
@@ -187,69 +194,50 @@ type();
 const reveals = document.querySelectorAll(".reveal");
 window.addEventListener("scroll", () => {
   reveals.forEach(el => {
-    const top = el.getBoundingClientRect().top;
-    if (top < window.innerHeight - 100) {
+    if (el.getBoundingClientRect().top < window.innerHeight - 100) {
       el.classList.add("show");
     }
   });
 });
 
 /* Modal */
-function openModal(title, text) {
-  document.getElementById("modalTitle").innerText = title;
-  document.getElementById("modalText").innerText = text;
+function openModal(t, txt) {
+  document.getElementById("modalTitle").innerText = t;
+  document.getElementById("modalText").innerText = txt;
   document.getElementById("modal").classList.remove("hidden");
 }
 function closeModal() {
   document.getElementById("modal").classList.add("hidden");
 }
 
-/* EmailJS (ADD YOUR ID HERE) */
-emailjs.init("YOUR_PUBLIC_KEY");
+/* EmailJS */
+emailjs.init("6SMATWAxvkhsmclZr");
 
 document.getElementById("contactForm").addEventListener("submit", function(e){
   e.preventDefault();
 
-  emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+  emailjs.send("service_36j5mfj", "template_fnzasiy", {
     name: this.name.value,
     email: this.email.value,
     message: this.message.value
+  })
+  .then(() => {
+    alert("✅ Message sent!");
+    this.reset();
+  })
+  .catch(() => {
+    alert("❌ Failed!");
   });
-
-  alert("Message Sent!");
 });
 
-/* Particle Background */
+/* Particle */
 tsParticles.load("tsparticles", {
   particles: {
     number: { value: 60 },
-    color: { value: "#ffffff" },
-    opacity: { value: 0.3 },
-    size: { value: 2 },
     move: { enable: true, speed: 1 }
   }
 });
 
-  // EmailJS init (ONLY ONCE)
-  emailjs.init("6SMATWAxvkhsmclZr");
-
-  document.getElementById("contactForm").addEventListener("submit", function(e){
-    e.preventDefault();
-
-    emailjs.send("service_36j5mfj", "template_fnzasiy", {
-      name: this.name.value,
-      email: this.email.value,
-      message: this.message.value
-    })
-    .then(() => {
-      alert("✅ Message sent successfully!");
-      this.reset(); // form clear করবে
-    })
-    .catch((error) => {
-      console.log(error);
-      alert("❌ Failed to send message!");
-    });
-  });
 </script>
 
 </body>
