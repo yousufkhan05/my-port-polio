@@ -1,244 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Yousuf Khan Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yousuf Khan Portfolio</title>
 
-<script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <link rel="stylesheet" href="script.js">
 
-<style>
-html { scroll-behavior: smooth; }
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
 
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: 1s ease;
-}
-.reveal.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-</style>
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: 1s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
 </head>
 
 <body class="bg-gray-950 text-white overflow-x-hidden">
 
-<div id="tsparticles" class="fixed inset-0 -z-10"></div>
+  <div id="tsparticles" class="fixed inset-0 -z-10"></div>
 
-<!-- NAV -->
-<header class="fixed w-full bg-gray-900/60 backdrop-blur z-50">
-  <div class="max-w-6xl mx-auto flex justify-between p-4 items-center">
+  <!-- NAV -->
+  <header class="fixed w-full bg-gray-900/60 backdrop-blur z-50">
+    <div class="max-w-6xl mx-auto flex justify-between p-4 items-center">
 
-    <h1 class="font-bold text-xl bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
-      Yousuf Khan
-    </h1>
+      <h1 class="font-bold text-xl bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
+        Yousuf Khan
+      </h1>
 
-    <nav class="hidden md:flex gap-6">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
+      <nav class="hidden md:flex gap-6">
+        <a class="text-purple-500" href="#home">Home</a>
+        <a class="text-purple-400" href="#home" href="#about">About</a>
+        <a class="text-purple-300" href="#home" href="#projects">Projects</a>
+        <a class="text-purple-200" href="#home" href="#contact">Contact</a>
+      </nav>
 
-    <button id="menuBtn" class="md:hidden text-2xl">☰</button>
+      <button id="menuBtn" class="md:hidden text-2xl text-pink-500 -">☰</button>
+    </div>
+  </header>
+
+  <!-- Mobile Sidebar -->
+  <div id="mobileMenu" class="fixed top-0 left-[-100%] w-64 h-full bg-gray-900 p-6 transition-all duration-300 z-50">
+
+    <a href="#home" class="block py-2">Home</a>
+    <a href="#about" class="block py-2">About</a>
+    <a href="#projects" class="block py-2">Projects</a>
+    <a href="#contact" class="block py-2">Contact</a>
+
   </div>
-</header>
 
-<!-- Mobile Sidebar -->
-<div id="mobileMenu"
- class="fixed top-0 left-[-100%] w-64 h-full bg-gray-900 p-6 transition-all duration-300 z-50">
+  <div id="overlay" class="hidden fixed inset-0 bg-black/50"></div>
 
-  <a href="#home" class="block py-2">Home</a>
-  <a href="#about" class="block py-2">About</a>
-  <a href="#projects" class="block py-2">Projects</a>
-  <a href="#contact" class="block py-2">Contact</a>
+  <!-- HERO -->
+  <section id="home" class="h-screen flex flex-col justify-center items-center text-center">
 
-</div>
+    <h2 class="text-4xl md:text-6xl font-bold">
+      Md. <span class="text-pink-400">Yousuf Khan</span>
+    </h2>
 
-<div id="overlay" class="hidden fixed inset-0 bg-black/50"></div>
-
-<!-- HERO -->
-<section id="home" class="h-screen flex flex-col justify-center items-center text-center">
-
-  <h2 class="text-4xl md:text-6xl font-bold">
-    Md. <span class="text-pink-400">Yousuf Khan</span>
-  </h2>
-
-  <p class="mt-4 text-gray-300 text-lg">
-    <span id="typing"></span>
-  </p>
-
-</section>
-
-<!-- ABOUT -->
-<section id="about" class="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 p-10 reveal">
-
-  <div>
-    <h2 class="text-3xl font-bold mb-4">About Me</h2>
-    <p class="text-gray-400">
-      I build modern websites using Tailwind CSS & JavaScript.
+    <p class="mt-4 text-gray-300 text-lg">
+      <span id="typing"></span>
     </p>
 
-    <!-- Social -->
-    <div class="mt-4 flex gap-4">
-      <a href="http://www.facebook.com/mdyousufkhan.180933">Facebook</a>
-      <a href="https://wa.me/8801771183608">WhatsApp</a>
-    </div>
-  </div>
+  </section>
 
-  <div class="h-64 rounded-2xl bg-gradient-to-r from-purple-600 to-pink-500 flex items-center justify-center">
-    📸 Your Photo
-  </div>
+  <!-- ABOUT -->
+  <section id="about" class="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 p-10 reveal">
 
-</section>
+    <div>
+      <h2 class="text-3xl font-bold mb-4">About Me</h2>
+      <p class="text-gray-400">
+        I build modern websites using Html, Css, Tailwind CSS & JavaScript.
+      </p>
 
-<!-- PROJECTS -->
-<section id="projects" class="bg-gray-900 py-16 reveal">
-
-<div class="max-w-6xl mx-auto px-6">
-  <h2 class="text-3xl text-center font-bold mb-10">Projects</h2>
-
-  <div class="grid md:grid-cols-3 gap-6">
-
-    <!-- CARD -->
-    <div class="bg-gray-800 rounded-xl overflow-hidden hover:scale-105 transition cursor-pointer"
-      onclick="openModal('Project 1','Details about project')">
-
-      <img src="https://via.placeholder.com/300" class="w-full h-40 object-cover">
-
-      <div class="p-4">
-        <h3 class="font-bold">Project 1</h3>
-        <p class="text-gray-400 text-sm">Project description</p>
+      <!-- Social -->
+      <div class="mt-4 flex gap-4">
+        <a href="http://www.facebook.com/mdyousufkhan.180933">Facebook</a>
+        <a href="https://wa.me/8801771183608">WhatsApp</a>
       </div>
-
+    </div>
+    <!-- HERO SECTION IMAGE -->
+    <div class="h-64 rounded-2xl bg-gradient-to-r from-purple-600 to-pink-500 flex items-center justify-center">
+      <img class="w-72 h-60 rounded-xl" src="./IMG_20260418_194810.jpg" alt="">
     </div>
 
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="bg-gray-900 py-16 reveal">
+
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl text-center font-bold mb-10">Projects</h2>
+
+      <div class="grid md:grid-cols-3 gap-6">
+
+        <!-- CARD -->
+        <div class="bg-gray-800 rounded-xl overflow-hidden hover:scale-105 transition cursor-pointer"
+          onclick="openModal('Project 1','Details about project')">
+
+          <img src="https://via.placeholder.com/300" class="w-full h-40 object-cover">
+
+          <div class="p-4">
+            <h3 class="font-bold">Project 1</h3>
+            <p class="text-gray-400 text-sm">Project description</p>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-16 max-w-3xl mx-auto reveal">
+
+    <h2 class="text-3xl text-center mb-6">Contact Me</h2>
+
+    <form id="contactForm" class="space-y-4">
+
+      <input type="text" name="name" placeholder="Your Name" class="w-full p-3 rounded bg-gray-800" />
+
+      <input type="email" name="email" placeholder="Your Email" class="w-full p-3 rounded bg-gray-800" />
+
+      <textarea name="message" placeholder="Message" class="w-full p-3 rounded bg-gray-800"></textarea>
+
+      <button class="w-full p-3 bg-pink-500 rounded hover:bg-pink-600">
+        Send Message
+      </button>
+
+    </form>
+
+  </section>
+
+  <!-- MODAL -->
+  <div id="modal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center">
+    <div class="bg-gray-900 p-6 rounded-xl w-80">
+      <h3 id="modalTitle"></h3>
+      <p id="modalText"></p>
+      <button onclick="closeModal()" class="mt-4 bg-pink-500 px-4 py-2 rounded">Close</button>
+    </div>
   </div>
-</div>
 
-</section>
+  <!-- WhatsApp Floating -->
+  <a href="https://wa.me/8801771183608" class="fixed bottom-5 left-5 bg-green-500 p-4 rounded-full">
+    💬
+  </a>
 
-<!-- CONTACT -->
-<section id="contact" class="py-16 max-w-3xl mx-auto reveal">
+  <script>
 
-<h2 class="text-3xl text-center mb-6">Contact Me</h2>
+    /* MENU FIX */
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+    const overlay = document.getElementById("overlay");
 
-<form id="contactForm" class="space-y-4">
+    menuBtn.onclick = () => {
+      mobileMenu.style.left = "0";
+      overlay.classList.remove("hidden");
+    };
 
-  <input type="text" name="name" placeholder="Your Name"
-    class="w-full p-3 rounded bg-gray-800"/>
+    overlay.onclick = () => {
+      mobileMenu.style.left = "-100%";
+      overlay.classList.add("hidden");
+    };
 
-  <input type="email" name="email" placeholder="Your Email"
-    class="w-full p-3 rounded bg-gray-800"/>
-
-  <textarea name="message" placeholder="Message"
-    class="w-full p-3 rounded bg-gray-800"></textarea>
-
-  <button class="w-full p-3 bg-pink-500 rounded hover:bg-pink-600">
-    Send Message
-  </button>
-
-</form>
-
-</section>
-
-<!-- MODAL -->
-<div id="modal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center">
-  <div class="bg-gray-900 p-6 rounded-xl w-80">
-    <h3 id="modalTitle"></h3>
-    <p id="modalText"></p>
-    <button onclick="closeModal()" class="mt-4 bg-pink-500 px-4 py-2 rounded">Close</button>
-  </div>
-</div>
-
-<!-- WhatsApp Floating -->
-<a href="https://wa.me/8801771183608"
- class="fixed bottom-5 left-5 bg-green-500 p-4 rounded-full">
- 💬
-</a>
-
-<script>
-
-/* MENU FIX */
-const menuBtn = document.getElementById("menuBtn");
-const mobileMenu = document.getElementById("mobileMenu");
-const overlay = document.getElementById("overlay");
-
-menuBtn.onclick = () => {
-  mobileMenu.style.left = "0";
-  overlay.classList.remove("hidden");
-};
-
-overlay.onclick = () => {
-  mobileMenu.style.left = "-100%";
-  overlay.classList.add("hidden");
-};
-
-/* Typing */
-const text = "I build modern websites using Tailwind & JavaScript";
-let i = 0;
-function type() {
-  if (i < text.length) {
-    document.getElementById("typing").innerHTML += text.charAt(i);
-    i++;
-    setTimeout(type, 50);
-  }
-}
-type();
-
-/* Scroll Reveal */
-const reveals = document.querySelectorAll(".reveal");
-window.addEventListener("scroll", () => {
-  reveals.forEach(el => {
-    if (el.getBoundingClientRect().top < window.innerHeight - 100) {
-      el.classList.add("show");
+    /* Typing */
+    const text = "I build modern websites using Html, Css, Tailwind & JavaScript";
+    let i = 0;
+    function type() {
+      if (i < text.length) {
+        document.getElementById("typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(type, 70);
+      }
     }
-  });
-});
+    type();
 
-/* Modal */
-function openModal(t, txt) {
-  document.getElementById("modalTitle").innerText = t;
-  document.getElementById("modalText").innerText = txt;
-  document.getElementById("modal").classList.remove("hidden");
-}
-function closeModal() {
-  document.getElementById("modal").classList.add("hidden");
-}
+    /* Scroll Reveal */
+    const reveals = document.querySelectorAll(".reveal");
+    window.addEventListener("scroll", () => {
+      reveals.forEach(el => {
+        if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+          el.classList.add("show");
+        }
+      });
+    });
 
-/* EmailJS */
-emailjs.init("6SMATWAxvkhsmclZr");
+    /* Modal */
+    function openModal(t, txt) {
+      document.getElementById("modalTitle").innerText = t;
+      document.getElementById("modalText").innerText = txt;
+      document.getElementById("modal").classList.remove("hidden");
+    }
+    function closeModal() {
+      document.getElementById("modal").classList.add("hidden");
+    }
 
-document.getElementById("contactForm").addEventListener("submit", function(e){
-  e.preventDefault();
+    /* EmailJS */
+    emailjs.init("6SMATWAxvkhsmclZr");
 
-  emailjs.send("service_36j5mfj", "template_fnzasiy", {
-    name: this.name.value,
-    email: this.email.value,
-    message: this.message.value
-  })
-  .then(() => {
-    alert("✅ Message sent!");
-    this.reset();
-  })
-  .catch(() => {
-    alert("❌ Failed!");
-  });
-});
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
+      e.preventDefault();
 
-/* Particle */
-tsParticles.load("tsparticles", {
-  particles: {
-    number: { value: 60 },
-    move: { enable: true, speed: 1 }
-  }
-});
+      emailjs.send("service_36j5mfj", "template_fnzasiy", {
+        name: this.name.value,
+        email: this.email.value,
+        message: this.message.value
+      })
+        .then(() => {
+          alert("✅ Message sent!");
+          this.reset();
+        })
+        .catch(() => {
+          alert("❌ Failed!");
+        });
+    });
 
-</script>
+    /* Particle */
+    tsParticles.load("tsparticles", {
+      particles: {
+        number: { value: 60 },
+        move: { enable: true, speed: 1 }
+      }
+    });
+
+  </script>
 
 </body>
+
 </html>
